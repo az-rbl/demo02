@@ -1,37 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
+import Alumno from './components/alumno'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const name = 'Raúl'
-const sesion = true;
-const  apellido = ''
-const alumnos =["juan", "pedro", "aldo"]
+
+
 const jsx =(<>
-{sesion === true ?(
-  <>
-<h1 className='titulo' style={{color:'red', fontSize:'4rem'}}>Hola {name}</h1>
-{apellido && <p>tu apellido es : {apellido}</p>}
-<h3>Lista de alumnos</h3>
-<ul>
-  {alumnos.map((nombre,i)=>{return<li key ={i}>{nombre}</li>})}
-</ul>
-</>
-):(<h2>NO has iniciado sesion</h2>)}
+  <Alumno/>
+  <Alumno/>
+  <Alumno/>
 </>
 );    
-
-
-
-// const compruebaSesion = (sesion) => {
-//   if (sesion ===  true){return jsx}
-//   else{
-//     return <h2>NO has iniciado sesion</h2>
-//   }
-// }
-// root.render(compruebaSesion(sesion));
-
 
 
 root.render(jsx);
