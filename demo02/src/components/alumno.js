@@ -1,4 +1,5 @@
 import React from "react";
+import { Lista } from "./lista";
 import {TituloRojo,TituloVerde} from "./titulo"
 
 const Alumno = () =>{
@@ -14,10 +15,7 @@ const alumnos =["juan", "pedro", "aldo"]
     <>
   
   {apellido && <p>tu apellido es : {apellido}</p>}
-  <h3>Lista de alumnos</h3>
-  <ul>
-    {alumnos.map((nombre,i)=>{return<li key ={i}>{nombre}</li>})}
-  </ul>
+  <Lista/>
   </>
   ):(<h2>NO has iniciado sesion</h2>)}
       </>
