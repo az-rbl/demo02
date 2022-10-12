@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
-import Alumno from './components/alumno'
-
+import Alumno from './components/alumno';
+import FormularioLogin from './components/FormularioLogin';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const App = ()=> {
   //sesion =true;
-  const[sesion,cambiarSesion]=useState(true);
+  const[sesion,cambiarSesion]=useState(false);
   // const cambiarSesion=() => {
   //   console.log(sesion);
   //   sesion = false;
@@ -26,7 +26,8 @@ return(
 </>
 ):(
   <><h2>No has iniciado sesion</h2>
-  <button onClick={()=>cambiarSesion(true)}>Iniciar Sesion</button>
+  {/* <button onClick={()=>cambiarSesion(true)}>Iniciar Sesion</button> */}
+  <FormularioLogin validar ={cambiarSesion}/>
   </>
 )}
 </>
