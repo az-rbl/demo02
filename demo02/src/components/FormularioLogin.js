@@ -8,6 +8,7 @@ const FormularioLogin = (props) => {
     const [password, SetPassword] =useState("");
     const [userR, SetUserR] =useState("Rafa");
     const [passwordR, SetPasswordR] =useState("123");
+    const [mayor8, Setmayor8]=useState(false);
     const ChangeR =(e)=>{
         SetPasswordR(password)
         SetUserR(user)
@@ -16,10 +17,13 @@ const FormularioLogin = (props) => {
         if(e.target.name ==="user"){
         console.log(e.target.value);
         SetUser(e.target.value);
+
         
     }
         else if(e.target.name === "password"){
             SetPassword(e.target.value)
+            if(e.target.value.length>7)
+            Setmayor8(true)
         
         }
             };
@@ -36,10 +40,10 @@ const FormularioLogin = (props) => {
     }
 
     const Registrar= (e) =>{
-        if(password>8){
+        if(mayor8===true){
             SetPasswordR(password);
             SetUserR(user);}
-        else{alert("menor que 8")}
+        else{alert("La contraseña debe tener por lo mentos 8 caracteres")}
 
     }
 
@@ -61,6 +65,13 @@ const FormularioLogin = (props) => {
             value={password}
             onChange={Change}
             />
+            {mayor8== true ?(
+                <>
+
+                </>
+            ):(<>
+            <p style={{color:'red'}} >La contraseña debe tener 8 caracteres o más</p>
+            </>)}
         </div>
         <Boton>Iniciar sesion</Boton>
         <Button type ="button" onClick={Registrar}>Registrar usuario</Button>
