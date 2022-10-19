@@ -1,10 +1,17 @@
 import React, {useState} from "react";
-
+import Boton from "../estilos/boton";
+import Button from "react-bootstrap/Button";
 
 
 const FormularioLogin = (props) => {
     const [user, SetUser] =useState("");
     const [password, SetPassword] =useState("");
+    const [userR, SetUserR] =useState("Rafa");
+    const [passwordR, SetPasswordR] =useState("123");
+    const ChangeR =(e)=>{
+        SetPasswordR(password)
+        SetUserR(user)
+    }
     const Change =(e)=>{
         if(e.target.name ==="user"){
         console.log(e.target.value);
@@ -19,7 +26,7 @@ const FormularioLogin = (props) => {
     const onSubmit = (e) => {
         console.log(e);
         e.preventDefault();
-        if(user==="Rafa" && password ==="123"){
+        if(user===userR && password ===passwordR){
             alert("correcto")
             props.validar(true);
         }
@@ -27,8 +34,18 @@ const FormularioLogin = (props) => {
             {alert("incorrecto")
         }
     }
+
+    const Registrar= (e) =>{
+        if(password>8){
+            SetPasswordR(password);
+            SetUserR(user);}
+        else{alert("menor que 8")}
+
+    }
+
     return ( 
         <form action="" onSubmit={onSubmit}>
+            <p>UsuarioR:{userR}</p>
            <p>Usuario:{user}</p>
            <p>Contraseña:{password}</p>
         <div>
@@ -45,7 +62,8 @@ const FormularioLogin = (props) => {
             onChange={Change}
             />
         </div>
-        <button>Iniciar sesion</button>
+        <Boton>Iniciar sesion</Boton>
+        <Button type ="button" onClick={Registrar}>Registrar usuario</Button>
        </form> 
      );
 }
